@@ -1,0 +1,6 @@
+[2017-02-17 02:03:09] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Cannot declare class CreateUsersTable, because the name is already in use in K:\dev\laravel\v53\database\migrations\2014_10_12_000000_create_users_table.php:35
+Stack trace:
+#0 {main}  
+[2017-02-17 02:05:36] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Cannot declare class CreateUsersTable, because the name is already in use in K:\dev\laravel\v53\database\migrations\2014_10_12_000000_create_users_table.php:35
+Stack trace:
+#0 {main}  
