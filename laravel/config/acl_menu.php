@@ -70,6 +70,13 @@ return [
                 "link"        => '/admin/users/profile/self',
                 "permissions" => []
             ],
+             [
+            "name"        => "Sample",
+                "route"       => "admin_sample",
+                "link"        => '/admin/sample',
+                "permissions" => ["_superadmin","_sample"]
+
+            ],
 
     ]
 ];
