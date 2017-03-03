@@ -6,10 +6,12 @@ use \LaravelAcl\Library\Validators\AbstractValidator;
 
 use Illuminate\Support\MessageBag as MessageBag;
 
-class SampleAdminValidator extends AbstractValidator
+class FaqAdminValidator extends AbstractValidator
 {
     protected static $rules = array(
-        'sample_name' => 'required',
+        'faq_title' => 'required',
+        'faq_nd' => 'required',
+       
     );
 
     protected static $messages = [];
@@ -25,35 +27,38 @@ class SampleAdminValidator extends AbstractValidator
 
     public function validate($input) {
 
-        $sample = parent::validate($input);
+        $flag = parent::validate($input);
 
         $this->errors = $this->errors?$this->errors:new MessageBag();
 
-        $sample = $this->isValidTitle($input)?$sample:FALSE;
-        return $sample;
+        $flag = $this->isValidTitle($input)?$flag:FALSE;
+        return $flag;
     }
 
 
     public function messages() {
         self::$messages = [
-            'required' => ':attribute '.trans('sample::sample_admin.required')
+            'required' => ':attribute '.trans('sample::faq_admin.required')
         ];
     }
 
     public function isValidTitle($input) {
 
-        $sample = TRUE;
+        $flag = TRUE;
 
         $min_lenght = config('sample.name_min_lengh');
         $max_lenght = config('sample.name_max_lengh');
 
-        $sample_name = @$input['sample_name'];
+        $faq_title = @$input['faq_title'];
+        $faq_nd = @$input['faq_nd'];
+        
+        
 
-        if ((strlen($sample_name) < $min_lenght)  || ((strlen($sample_name) > $max_lenght))) {
+        if ((strlen($faq_title) < $min_lenght)  || ((strlen($faq_title) > $max_lenght))) {
             $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
-            $sample = TRUE;
+            $flag = TRUE;
         }
 
-        return $sample;
+        return $flag;
     }
 }

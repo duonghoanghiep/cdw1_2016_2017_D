@@ -77,6 +77,21 @@ return [
                 "permissions" => ["_superadmin","_sample"]
 
             ],
+        [
+            "name"        => "Faq",
+                "route"       => "admin_faq",
+                "link"        => '/admin/faq',
+                "permissions" => ["_superadmin","_faq"]
+
+            ],
+        
+        [
+            "name"        => "Slide",
+                "route"       => "admin_slide",
+                "link"        => '/admin/slide',
+                "permissions" => ["_superadmin","_slide"]
+
+            ],
 
     ]
 ];
