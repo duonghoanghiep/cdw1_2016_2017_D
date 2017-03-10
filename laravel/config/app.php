@@ -163,6 +163,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 	Foostart\Sample\SampleServiceProvider::class,
+	Foostart\Post\PostServiceProvider::class,
+        Foostart\Contact\ContactServiceProvider::class,
 
 
         /*

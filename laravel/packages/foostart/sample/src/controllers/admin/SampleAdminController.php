@@ -28,13 +28,14 @@ class SampleAdminController extends Controller {
      */
     public function index(Request $request) {
 
-        $params = array();
+        $params = $request->all();
 
         $list_sample = $this->obj_sample->get_samples($params);
 
         $this->data_view = array_merge($this->data_view, array(
             'samples' => $list_sample,
-            'request' => $request
+            'request' => $request,
+            'params' => $params
         ));
         return view('sample::sample.admin.sample_list', $this->data_view);
     }
@@ -45,7 +46,6 @@ class SampleAdminController extends Controller {
      */
     public function edit(Request $request) {
 
-       
         $sample = NULL;
         $sample_id = (int) $request->get('id');
 
@@ -59,8 +59,6 @@ class SampleAdminController extends Controller {
             'request' => $request
         ));
         return view('sample::sample.admin.sample_edit', $this->data_view);
-
-
     }
 
     /**
@@ -68,14 +66,13 @@ class SampleAdminController extends Controller {
      * @return type
      */
     public function post(Request $request) {
-                $this->obj_validator = new SampleAdminValidator();
 
+        $this->obj_validator = new SampleAdminValidator();
 
         $input = $request->all();
 
         $sample_id = (int) $request->get('id');
         $sample = NULL;
-
 
         $data = array();
 
@@ -99,12 +96,12 @@ class SampleAdminController extends Controller {
                     $sample = $this->obj_sample->update_sample($input);
 
                     //Message
-                    \Session::flash('message', trans('sample::sample.message_update_successfully'));
+                    \Session::flash('message', trans('sample::sample_admin.message_update_successfully'));
                     return Redirect::route("admin_sample.edit", ["id" => $sample->sample_id]);
                 } else {
 
                     //Message
-                    \Session::flash('message', trans('sample::sample.message_update_unsuccessfully'));
+                    \Session::flash('message', trans('sample::sample_admin.message_update_unsuccessfully'));
                 }
             } else {
 
@@ -113,12 +110,12 @@ class SampleAdminController extends Controller {
                 if (!empty($sample)) {
 
                     //Message
-                    \Session::flash('message', trans('sample::sample.message_add_successfully'));
+                    \Session::flash('message', trans('sample::sample_admin.message_add_successfully'));
                     return Redirect::route("admin_sample.edit", ["id" => $sample->sample_id]);
                 } else {
 
                     //Message
-                    \Session::flash('message', trans('sample::sample.message_add_unsuccessfully'));
+                    \Session::flash('message', trans('sample::sample_admin.message_add_unsuccessfully'));
                 }
             }
         }
@@ -145,7 +142,7 @@ class SampleAdminController extends Controller {
 
             if (!empty($sample)) {
                   //Message
-                \Session::flash('message', trans('sample::sample.message_delete_successfully'));
+                \Session::flash('message', trans('sample::sample_admin.message_delete_successfully'));
 
                 $sample->delete();
             }

@@ -25,12 +25,13 @@ class SampleAdminValidator extends AbstractValidator
 
     public function validate($input) {
 
-        $sample = parent::validate($input);
+        $flag = parent::validate($input);
 
         $this->errors = $this->errors?$this->errors:new MessageBag();
 
-        $sample = $this->isValidTitle($input)?$sample:FALSE;
-        return $sample;
+        $flag = $this->isValidTitle($input)?$flag:FALSE;
+
+        return $flag;
     }
 
 
@@ -42,18 +43,18 @@ class SampleAdminValidator extends AbstractValidator
 
     public function isValidTitle($input) {
 
-        $sample = TRUE;
+        $flag = TRUE;
 
-        $min_lenght = config('sample.name_min_lengh');
-        $max_lenght = config('sample.name_max_lengh');
+        $min_lenght = config('sample_admin.name_min_length');
+        $max_lenght = config('sample_admin.name_max_length');
 
         $sample_name = @$input['sample_name'];
 
         if ((strlen($sample_name) < $min_lenght)  || ((strlen($sample_name) > $max_lenght))) {
             $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
-            $sample = TRUE;
+            $flag = TRUE;
         }
 
-        return $sample;
+        return $flag;
     }
 }

@@ -20,28 +20,28 @@ class SampleServiceProvider extends ServiceProvider {
         /**
          * Publish
          */
-        $this->publishes([
-        ]);
+         $this->publishes([
+            __DIR__.'/config/sample_admin.php' => config_path('sample_admin.php'),
+        ],'config');
 
         $this->loadViewsFrom(__DIR__ . '/views', 'sample');
-         $this->loadViewsFrom(__DIR__ . '/views', 'faq');
-         $this->loadViewsFrom(__DIR__ . '/views', 'slide');
 
 
         /**
          * Translations
          */
          $this->loadTranslationsFrom(__DIR__.'/lang', 'sample');
-         $this->loadTranslationsFrom(__DIR__.'/lang', 'faq');
-         $this->loadTranslationsFrom(__DIR__.'/lang', 'slide');
 
 
         /**
          * Load view composer
          */
         $this->sampleViewComposer($request);
-        $this->faqViewComposer($request);
-         $this->slideViewComposer($request);
+
+         $this->publishes([
+                __DIR__.'/../database/migrations/' => database_path('migrations')
+            ], 'migrations');
+
     }
 
     /**
@@ -56,15 +56,11 @@ class SampleServiceProvider extends ServiceProvider {
          * Load controllers
          */
         $this->app->make('Foostart\Sample\Controllers\Admin\SampleAdminController');
-         $this->app->make('Foostart\Sample\Controllers\Admin\FaqAdminController');
-         $this->app->make('Foostart\Sample\Controllers\Admin\SlideAdminController');
 
          /**
          * Load Views
          */
         $this->loadViewsFrom(__DIR__ . '/views', 'sample');
-        $this->loadViewsFrom(__DIR__ . '/views', 'faq');
-        $this->loadViewsFrom(__DIR__ . '/views', 'slide');
     }
 
     /**
@@ -75,12 +71,15 @@ class SampleServiceProvider extends ServiceProvider {
         view()->composer('sample::sample*', function ($view) {
             global $request;
             $sample_id = $request->get('id');
-            $is_action = empty($sample_id)?'add':'edit';
+            $is_action = empty($sample_id)?'page_add':'page_edit';
 
             $view->with('sidebar_items', [
 
+                /**
+                 * Samples
+                 */
                 //list
-                trans('sample::sample_admin.list') => [
+                trans('sample::sample_admin.page_list') => [
                     'url' => URL::route('admin_sample'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
@@ -89,51 +88,13 @@ class SampleServiceProvider extends ServiceProvider {
                     'url' => URL::route('admin_sample.edit'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
-            ]);
-            //
-        });
-    }
-    
-    public function faqViewComposer(Request $request) {
 
-        view()->composer('sample::faq*', function ($view) {
-            global $request;
-            $faq_id = $request->get('id');
-            $is_action = empty($faq_id)?'add':'edit';
-
-            $view->with('sidebar_items', [
-
+                /**
+                 * Categories
+                 */
                 //list
-                trans('sample::faq_admin.list') => [
-                    'url' => URL::route('admin_faq'),
-                    "icon" => '<i class="fa fa-users"></i>'
-                ],
-                //add
-                trans('sample::faq_admin.'.$is_action) => [
-                    'url' => URL::route('admin_faq.edit'),
-                    "icon" => '<i class="fa fa-users"></i>'
-                ],
-            ]);
-            //
-        });
-    }
-    public function slideViewComposer(Request $request) {
-
-        view()->composer('sample::slide*', function ($view) {
-            global $request;
-            $slide_id = $request->get('id');
-            $is_action = empty($slide_id)?'add':'edit';
-
-            $view->with('sidebar_items', [
-
-                //list
-                trans('sample::slide_admin.list') => [
-                    'url' => URL::route('admin_slide'),
-                    "icon" => '<i class="fa fa-users"></i>'
-                ],
-                //add
-                trans('sample::slide_admin.'.$is_action) => [
-                    'url' => URL::route('admin_slide.edit'),
+                trans('sample::sample_admin.page_category_list') => [
+                    'url' => URL::route('admin_sample_category'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
             ]);

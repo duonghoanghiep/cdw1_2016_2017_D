@@ -31,7 +31,12 @@
     </tbody>
 </table>
 <?php else: ?>
-<span class="text-warning"><h5>No results found.</h5></span>
+ <span class="text-warning">
+	<h5>
+		<?php echo e(trans('sample::sample_admin.message_find_failed')); ?>
+
+	</h5>
+ </span>
 <?php endif; ?>
 <div class="paginator">
     <?php echo $samples->appends($request->except(['page']) )->render(); ?>

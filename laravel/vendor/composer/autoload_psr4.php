@@ -38,6 +38,8 @@ return array(
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'Foostart\\Sample\\' => array($baseDir . '/packages/foostart/sample/src'),
+    'Foostart\\Post\\' => array($baseDir . '/packages/foostart/post/src'),
+    'Foostart\\Contact\\' => array($baseDir . '/packages/foostart/contact/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),

@@ -6,7 +6,7 @@ Admin area: <?php echo e(trans('sample::sample_admin.page_edit')); ?>
 <div class="row">
     <div class="col-md-12">
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title bariol-thin">
@@ -38,20 +38,10 @@ Admin area: <?php echo e(trans('sample::sample_admin.page_edit')); ?>
 
 
 
-                            <!-- SAMPLE NAME -->
-                            <div class="form-group">
-                                <?php $sample_name = $request->get('sample_titlename')?$request->get('sample_name'):@$sample->sample_name ?>
-                                <?php echo Form::label('sample_name', trans('sample::sample_admin.name').':'); ?>
-
-                                <?php echo Form::text('sample_name', $sample_name, ['class' => 'form-control', 'placeholder' => trans('sample::sample_admin.name').'']); ?>
-
-                            </div>
-                            <!-- /SAMPLE NAME -->
-
-
-
+                            <!-- SAMPLE NAME TEXT-->
+                            <?php echo $__env->make('sample::sample.elements.text', ['name' => 'sample_name'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                            <!-- /END SAMPLE NAME TEXT -->
                             <?php echo Form::hidden('id',@$sample->sample_id); ?>
-
 
 
                             <!-- DELETE BUTTON -->
@@ -74,9 +64,7 @@ Admin area: <?php echo e(trans('sample::sample_admin.page_edit')); ?>
             </div>
         </div>
 
-        <div class='col-md-4'>
-            <?php echo $__env->make('sample::sample.admin.sample_search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        </div>
+       
 
     </div>
 </div>

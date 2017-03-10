@@ -78,20 +78,27 @@ return [
 
             ],
         [
-            "name"        => "Faq",
-                "route"       => "admin_faq",
-                "link"        => '/admin/faq',
-                "permissions" => ["_superadmin","_faq"]
+            "name"        => "Post",
+                "route"       => "admin_post",
+                "link"        => '/admin/post',
+                "permissions" => ["_superadmin","_post"]
 
             ],
         
-        [
-            "name"        => "Slide",
-                "route"       => "admin_slide",
-                "link"        => '/admin/slide',
-                "permissions" => ["_superadmin","_slide"]
+         [
+            "name"        => "Contact",
+                "route"       => "admin_contact",
+                "link"        => '/admin/contact',
+                "permissions" => ["_superadmin","_contact"]
 
             ],
+        
 
-    ]
+            
+       ]
+        
+       
+
+
+    
 ];
