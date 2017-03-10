@@ -36,15 +36,15 @@ Admin area: {{ trans('post::post_admin.page_edit') }}
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            <!-- SAMPLE CATEGORIES ID -->
+                            <!-- POST CATEGORIES ID -->
                             <h4>{!! trans('post::post_admin.form_heading') !!}</h4>
                             {!! Form::open(['route'=>['admin_post_category.post', 'id' => @$post->post_category_id],  'files'=>true, 'method' => 'post'])  !!}
 
-                            <!--END SAMPLE CATEGORIES ID  -->
+                            <!--END POST CATEGORIES ID  -->
 
-                            <!-- SAMPLE NAME TEXT-->
+                            <!-- POST NAME TEXT-->
                             @include('post::post_category.elements.text', ['name' => 'post_category_name'])
-                            <!-- /END SAMPLE NAME TEXT -->
+                            <!-- /END POST NAME TEXT -->
                             
                             {!! Form::hidden('id',@$post->post_category_id) !!}
 

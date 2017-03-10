@@ -12,6 +12,7 @@
             {!! Form::label('contact_category_name',trans('contact::contact_admin.contact_category_name_label')) !!}
             {!! Form::text('contact_category_name', @$params['contact_category_name'], ['class' => 'form-control', 'placeholder' => trans('contact::contact_admin.contact_category_name')]) !!}
         </div>
+        <!--/END TITLE-->
 
         {!! Form::submit(trans('contact::contact_admin.search').'', ["class" => "btn btn-info pull-right"]) !!}
         {!! Form::close() !!}

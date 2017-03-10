@@ -1,4 +1,4 @@
-<!--ADD SAMPLE CATEGORY ITEM-->
+<!--ADD CONTACT CATEGORY ITEM-->
 <div class="row margin-bottom-12">
     <div class="col-md-12">
         <a href="{!! URL::route('admin_contact_category.edit') !!}" class="btn btn-info pull-right">
@@ -6,15 +6,15 @@
         </a>
     </div>
 </div>
-<!--/END ADD SAMPLE CATEGORY ITEM-->
+<!--/END ADD CONTACT CATEGORY ITEM-->
 
 @if( ! $contacts_categories->isEmpty() )
 <table class="table table-hover">
     <thead>
         <tr>
-            <td style='width:5%'>
+            <th style='width:5%'>
                 {{ trans('contact::contact_admin.order') }}
-            </td>
+            </th>
 
             <th style='width:10%'>
                 {{ trans('contact::contact_admin.contact_categoty_id') }}
@@ -58,29 +58,41 @@
             </td>
             <!--/END COUNTER-->
 
-            <!--SAMPLE CATEGORY ID-->
+            <!--CONTACT CATEGORY ID-->
             <td>
                 {!! $contact_category->contact_category_id !!}
             </td>
-            <!--/END SAMPLE CATEGORY ID-->
+            <!--/END CONTACT CATEGORY ID-->
 
-            <!--SAMPLE CATEGORY NAME-->
+            <!--CONTACT CATEGORY NAME-->
             <td>
                 {!! $contact_category->contact_category_name !!}
             </td>
-            <!--/END SAMPLE CATEGORY NAME-->
+            <!--/END CONTACT CATEGORY NAME-->
+            
+            <!--CONTACT CATEGORY CONG VIEC-->
             <td>
                 {!! $contact_category->contact_category_cv !!}
             </td>
+            <!--/END CONTACT CATEGORY CONG VIEC-->
+            
+            <!--CONTACT CATEGORY SDT-->
             <td>
                 {!! $contact_category->contact_category_sdt !!}
             </td>
+            <!--/END CONTACT CATEGORY SDT-->
+            
+            <!--CONTACT CATEGORY MAIL-->
             <td>
                 {!! $contact_category->contact_category_mail !!}
             </td>
+            <!--/END CONTACT CATEGORY MAIL-->
+            
+            <!--CONTACT CATEGORY SKYPE-->
             <td>
                 {!! $contact_category->contact_category_skype !!}
             </td>
+            <!--/END CONTACT CATEGORY SKYPE-->
 
             <!--OPERATOR-->
             <td>

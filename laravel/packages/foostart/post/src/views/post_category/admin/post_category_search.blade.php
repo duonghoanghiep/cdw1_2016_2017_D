@@ -12,6 +12,7 @@
             {!! Form::label('post_category_name',trans('post::post_admin.post_category_name_label')) !!}
             {!! Form::text('post_category_name', @$params['post_category_name'], ['class' => 'form-control', 'placeholder' => trans('post::post_admin.post_category_name')]) !!}
         </div>
+        <!--/END TITLE-->
 
         {!! Form::submit(trans('post::post_admin.search').'', ["class" => "btn btn-info pull-right"]) !!}
         {!! Form::close() !!}

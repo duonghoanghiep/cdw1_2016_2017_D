@@ -67,13 +67,14 @@ Admin area: {{ trans('contact::contact_admin.page_edit') }}
                             <!-- CONTACT  TEXT-->
                             @include('contact::contact.elements.text', ['name' => 'contact_name','cv' => 'contact_cv','sdt' => 'contact_sdt','mail' => 'contact_mail','skype' => 'contact_skype'])                           <!-- /END SAMPLE NAME TEXT -->
                             {!! Form::hidden('id',@$contact->contact_id) !!}
+                            <!-- /END CONTACT  TEXT-->
 
                             <!-- DELETE BUTTON -->
                             <a href="{!! URL::route('admin_contact.delete',['id' => @$contact->id, '_token' => csrf_token()]) !!}"
                                class="btn btn-danger pull-right margin-left-5 delete">
                                 Delete
                             </a>
-                            <!-- DELETE BUTTON -->
+                            <!-- /DELETE BUTTON -->
 
                             <!-- SAVE BUTTON -->
                             {!! Form::submit('Save', array("class"=>"btn btn-info pull-right ")) !!}

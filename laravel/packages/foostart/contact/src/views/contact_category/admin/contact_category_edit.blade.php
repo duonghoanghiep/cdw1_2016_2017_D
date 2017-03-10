@@ -21,7 +21,7 @@ Admin area: {{ trans('contact::contact_admin.page_edit') }}
                 @endif
                 <!-- /END ERROR NAME -->
                 
-                <!-- ERRORS CO9NG VIEC  -->
+                <!-- ERRORS CONG VIEC  -->
                 @if($errors->has('contact_category_cv') )
                     <div class="alert alert-danger">{!! $errors->first('contact_category_cv') !!}</div>
                 @endif
@@ -60,15 +60,15 @@ Admin area: {{ trans('contact::contact_admin.page_edit') }}
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            <!-- SAMPLE CATEGORIES ID -->
+                            <!-- CONTACT CATEGORIES ID -->
                             <h4>{!! trans('contact::contact_admin.form_heading') !!}</h4>
                             {!! Form::open(['route'=>['admin_contact_category.post', 'id' => @$contact->contact_category_id],  'files'=>true, 'method' => 'post'])  !!}
 
-                            <!--END SAMPLE CATEGORIES ID  -->
+                            <!--END CONTACT CATEGORIES ID  -->
 
-                            <!-- SAMPLE NAME TEXT-->
+                            <!-- CONTACT  TEXT-->
                             @include('contact::contact_category.elements.text', ['name' => 'contact_category_name','cv' => 'contact_category_cv','sdt' => 'contact_category_sdt','mail' => 'contact_category_mail','skype' => 'contact_category_skype'])
-                            <!-- /END SAMPLE NAME TEXT -->
+                            <!-- /END CONTACT  TEXT -->
                             
                             {!! Form::hidden('id',@$contact->contact_category_id) !!}
 

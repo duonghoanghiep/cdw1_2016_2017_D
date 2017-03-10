@@ -42,17 +42,17 @@
             </td>
             <!--/END COUNTER-->
 
-            <!--SAMPLE CATEGORY ID-->
+            <!--POST CATEGORY ID-->
             <td>
                 {!! $post_category->post_category_id !!}
             </td>
-            <!--/END SAMPLE CATEGORY ID-->
+            <!--/END POST CATEGORY ID-->
 
-            <!--SAMPLE CATEGORY NAME-->
+            <!--POST CATEGORY NAME-->
             <td>
                 {!! $post_category->post_category_name !!}
             </td>
-            <!--/END SAMPLE CATEGORY NAME-->
+            <!--/END POST CATEGORY NAME-->
 
             <!--OPERATOR-->
             <td>
