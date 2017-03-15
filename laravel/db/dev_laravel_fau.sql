@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 10, 2017 lúc 08:32 SA
+-- Thời gian đã tạo: Th3 15, 2017 lúc 10:16 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -43,10 +43,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`contact_id`, `contact_name`, `contact_cv`, `contact_sdt`, `contact_mail`, `contact_skype`) VALUES
-(3, '13213213', '213213213', '123213213', '213213213', '21321321321'),
-(4, '1', '1', '1', '1', '1'),
-(6, '23213', '123213', '123213', '32131', '3213213'),
-(7, 'a', 'a', 'a', 'a', 'a');
+(3, '<p style="text-align: center;"><em><strong>name&acirc;</strong></em></p>', '<p>cv</p>', '<p>sdt</p>', '<p>mail</p>', '<p>skype</p>'),
+(9, '<p><em>11</em></p>', '<p>11111</p>', '<p>1111</p>', '<p>2222</p>', '<p>222222</p>'),
+(10, '<p>A<strong>AA</strong></p>', '<p>A</p>', '<p>A</p>', '<p>A</p>', '<p>A</p>');
 
 -- --------------------------------------------------------
 
@@ -69,30 +68,8 @@ CREATE TABLE `contacts_categories` (
 --
 
 INSERT INTO `contacts_categories` (`contact_category_id`, `contact_category_name`, `contact_category_cv`, `contact_category_sdt`, `contact_category_mail`, `contact_category_skype`) VALUES
-(1, '1', '1', '1', '1', '12');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `faqs`
---
-
-DROP TABLE IF EXISTS `faqs`;
-CREATE TABLE `faqs` (
-  `faq_id` int(50) NOT NULL,
-  `faq_title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `faq_nd` varchar(250) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `faqs`
---
-
-INSERT INTO `faqs` (`faq_id`, `faq_title`, `faq_nd`) VALUES
-(1, '123213', '111111111111'),
-(2, 'eqwwqe', 'qwqwqweqwe'),
-(4, '3123123', '12321312'),
-(6, 'qưewqewqe', 'qưewqeqwewq');
+(1, '111', '111', '1111', '111111', '121111'),
+(2, '<p style="text-align: left; padding-left: 30px;">111111<em>111111111111<strong>1111111111111111111</strong></em></p>', '<p>1</p>', '<p>1</p>', '<p>1</p>', '<p>1</p>');
 
 -- --------------------------------------------------------
 
@@ -252,21 +229,6 @@ INSERT INTO `posts_categories` (`post_category_id`, `post_category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
---
-
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
-  `product_id` int(50) NOT NULL,
-  `product_time` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `product_title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `product_nd` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `product_image` varchar(251) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `profile_field`
 --
 
@@ -339,21 +301,6 @@ INSERT INTO `samples_categories` (`sample_category_id`, `sample_category_name`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `says`
---
-
-DROP TABLE IF EXISTS `says`;
-CREATE TABLE `says` (
-  `say_id` int(50) NOT NULL,
-  `say_img` varchar(251) COLLATE utf8_unicode_ci NOT NULL,
-  `say_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `say_cv` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `say_say` varchar(250) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `service`
 --
 
@@ -370,6 +317,32 @@ CREATE TABLE `service` (
 INSERT INTO `service` (`service_id`, `service_icon`) VALUES
 (312, '123123'),
 (313, 'wewqeweq');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `services`
+--
+
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE `services` (
+  `service_id` int(50) NOT NULL,
+  `service_title` varchar(251) NOT NULL,
+  `service_nd` varchar(251) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `services_categories`
+--
+
+DROP TABLE IF EXISTS `services_categories`;
+CREATE TABLE `services_categories` (
+  `Services_category_id` int(50) NOT NULL,
+  `Services_category_title` varchar(251) NOT NULL,
+  `Services_category_name` varchar(251) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -438,7 +411,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `permissions`, `activated`, `banned`, `activation_code`, `activated_at`, `last_login`, `persist_code`, `reset_password_code`, `protected`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.com', '$2y$10$8OWc3y5qDAPGkd/G/vr1Je4pYtqlDKRt4SJonbiXKb6vA.AaJVZPK', NULL, 1, 0, NULL, NULL, '2017-03-09 23:12:02', '$2y$10$OxPQjICyQh2lu2iaCC99gudSq72bT/ILs62skUa1D3.Jyg.7BqIvS', NULL, 0, '2017-02-16 19:07:34', '2017-03-09 23:12:02');
+(1, 'admin@admin.com', '$2y$10$8OWc3y5qDAPGkd/G/vr1Je4pYtqlDKRt4SJonbiXKb6vA.AaJVZPK', NULL, 1, 0, NULL, NULL, '2017-03-14 23:14:12', '$2y$10$ZO2GlKcBT/6/cnkmCI6cWuGvUEmh7TAYpgtjph4LFN842ShC9fm7a', NULL, 0, '2017-02-16 19:07:34', '2017-03-14 23:14:12');
 
 -- --------------------------------------------------------
 
@@ -508,12 +481,6 @@ ALTER TABLE `contacts_categories`
   ADD PRIMARY KEY (`contact_category_id`);
 
 --
--- Chỉ mục cho bảng `faqs`
---
-ALTER TABLE `faqs`
-  ADD PRIMARY KEY (`faq_id`);
-
---
 -- Chỉ mục cho bảng `groups`
 --
 ALTER TABLE `groups`
@@ -558,12 +525,6 @@ ALTER TABLE `posts_categories`
   ADD PRIMARY KEY (`post_category_id`);
 
 --
--- Chỉ mục cho bảng `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
-
---
 -- Chỉ mục cho bảng `profile_field`
 --
 ALTER TABLE `profile_field`
@@ -590,16 +551,22 @@ ALTER TABLE `samples_categories`
   ADD PRIMARY KEY (`sample_category_id`);
 
 --
--- Chỉ mục cho bảng `says`
---
-ALTER TABLE `says`
-  ADD PRIMARY KEY (`say_id`);
-
---
 -- Chỉ mục cho bảng `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`);
+
+--
+-- Chỉ mục cho bảng `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`service_id`);
+
+--
+-- Chỉ mục cho bảng `services_categories`
+--
+ALTER TABLE `services_categories`
+  ADD PRIMARY KEY (`Services_category_id`);
 
 --
 -- Chỉ mục cho bảng `slides`
@@ -644,17 +611,12 @@ ALTER TABLE `user_profile`
 -- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `contact_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `contact_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT cho bảng `contacts_categories`
 --
 ALTER TABLE `contacts_categories`
-  MODIFY `contact_category_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT cho bảng `faqs`
---
-ALTER TABLE `faqs`
-  MODIFY `faq_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `contact_category_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT cho bảng `groups`
 --
@@ -686,11 +648,6 @@ ALTER TABLE `posts`
 ALTER TABLE `posts_categories`
   MODIFY `post_category_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT cho bảng `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(50) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT cho bảng `profile_field`
 --
 ALTER TABLE `profile_field`
@@ -711,15 +668,20 @@ ALTER TABLE `samples`
 ALTER TABLE `samples_categories`
   MODIFY `sample_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213232333;
 --
--- AUTO_INCREMENT cho bảng `says`
---
-ALTER TABLE `says`
-  MODIFY `say_id` int(50) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT cho bảng `service`
 --
 ALTER TABLE `service`
   MODIFY `service_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
+--
+-- AUTO_INCREMENT cho bảng `services`
+--
+ALTER TABLE `services`
+  MODIFY `service_id` int(50) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT cho bảng `services_categories`
+--
+ALTER TABLE `services_categories`
+  MODIFY `Services_category_id` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT cho bảng `slides`
 --
