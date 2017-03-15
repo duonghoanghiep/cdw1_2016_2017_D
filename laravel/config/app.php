@@ -165,6 +165,7 @@ return [
 	Foostart\Sample\SampleServiceProvider::class,
 	Foostart\Post\PostServiceProvider::class,
         Foostart\Contact\ContactServiceProvider::class,
+        Foostart\Service\ServiceServiceProvider::class,
 
 
         /*

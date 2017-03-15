@@ -39,12 +39,11 @@ Admin area: {{ trans('post::post_admin.page_edit') }}
                             <!-- POST CATEGORIES ID -->
                             <h4>{!! trans('post::post_admin.form_heading') !!}</h4>
                             {!! Form::open(['route'=>['admin_post_category.post', 'id' => @$post->post_category_id],  'files'=>true, 'method' => 'post'])  !!}
-
                             <!--END POST CATEGORIES ID  -->
 
-                            <!-- POST NAME TEXT-->
+                            <!-- POST CATEGORIES NAME TEXT-->
                             @include('post::post_category.elements.text', ['name' => 'post_category_name'])
-                            <!-- /END POST NAME TEXT -->
+                            <!-- /END POST CATEGORIES NAME TEXT -->
                             
                             {!! Form::hidden('id',@$post->post_category_id) !!}
 

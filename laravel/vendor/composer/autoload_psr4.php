@@ -37,6 +37,7 @@ return array(
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'Foostart\\Service\\' => array($baseDir . '/packages/foostart/service/src'),
     'Foostart\\Sample\\' => array($baseDir . '/packages/foostart/sample/src'),
     'Foostart\\Post\\' => array($baseDir . '/packages/foostart/post/src'),
     'Foostart\\Contact\\' => array($baseDir . '/packages/foostart/contact/src'),

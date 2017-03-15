@@ -4,6 +4,7 @@
 Admin area: {{ trans('contact::contact_admin.page_edit') }}
 @stop
 @section('content')
+
 <div class="row">
     <div class="col-md-12">
 
@@ -61,7 +62,7 @@ Admin area: {{ trans('contact::contact_admin.page_edit') }}
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <h4>{!! trans('contact::contact_admin.form_heading') !!}</h4>
-                            {!! Form::open(['route'=>['admin_contact.post', 'id' => @$contact->contact_id],  'files'=>true, 'method' => 'post'])  !!}
+                            {!! Form::open(['route'=>['admin_contact.post', 'id' => @$contact->contact_id,  'files'=>true, 'method' => 'post']])  !!}
 
 
                             <!-- CONTACT  TEXT-->

@@ -1,15 +1,15 @@
-<?php
+<?php namespace Foostart\Contact\Controllers\Front;
 
-namespace Foostart\Contact\Controlers\Admin;
-
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use URL,
-    Route,
+use App\Http\Controllers\Controller;
+use URL;
+use Route,
     Redirect;
 use Foostart\Contact\Models\Contacts;
-
+/**
+ * Validators
+ */
+use Foostart\Contact\Validators\ContactAdminValidator;
 class ContactFrontController extends Controller
 {
     public $data = array();

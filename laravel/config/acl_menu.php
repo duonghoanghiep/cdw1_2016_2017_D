@@ -93,6 +93,14 @@ return [
 
             ],
         
+        [
+            "name"        => "Service",
+                "route"       => "admin_service",
+                "link"        => '/admin/service',
+                "permissions" => ["_superadmin","_service"]
+
+            ],
+        
 
             
        ]

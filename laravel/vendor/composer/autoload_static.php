@@ -84,6 +84,7 @@ class ComposerStaticInit448b3a15d7326f424be94f463be029b5
         ),
         'F' => 
         array (
+            'Foostart\\Service\\' => 17,
             'Foostart\\Sample\\' => 16,
             'Foostart\\Post\\' => 14,
             'Foostart\\Contact\\' => 17,
@@ -234,6 +235,10 @@ class ComposerStaticInit448b3a15d7326f424be94f463be029b5
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'Foostart\\Service\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/foostart/service/src',
         ),
         'Foostart\\Sample\\' => 
         array (

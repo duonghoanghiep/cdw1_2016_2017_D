@@ -5,8 +5,9 @@ use Illuminate\Session\TokenMismatchException;
 /**
  * FRONT
  */
-Route::get('contact', [
-    'as' => 'contact',
+
+Route::get('ex', [
+    'as' => 'ex',
     'uses' => 'Foostart\Contact\Controllers\Front\ContactFrontController@index'
 ]);
 

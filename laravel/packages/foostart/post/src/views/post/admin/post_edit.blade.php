@@ -14,15 +14,18 @@ Admin area: {{ trans('post::post_admin.page_edit') }}
                         {!! !empty($post->post_id) ? '<i class="fa fa-pencil"></i>'.trans('post::post_admin.form_edit') : '<i class="fa fa-users"></i>'.trans('post::post_admin.form_add') !!}
                     </h3>
                 </div>
-
+                <!-- ERRORS NAME  -->
                 {{-- model general errors from the form --}}
                 @if($errors->has('post_name') )
                     <div class="alert alert-danger">{!! $errors->first('post_name') !!}</div>
                 @endif
+                <!-- /END ERROR NAME -->
 
+                 <!-- LENGTH NAME  -->
                 @if($errors->has('name_unvalid_length') )
                     <div class="alert alert-danger">{!! $errors->first('name_unvalid_length') !!}</div>
                 @endif
+                <!-- /END LENGTH NAME -->
 
                 {{-- successful message --}}
                 <?php $message = Session::get('message'); ?>
@@ -33,15 +36,17 @@ Admin area: {{ trans('post::post_admin.page_edit') }}
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
+                            <!-- POST ID -->
                             <h4>{!! trans('post::post_admin.form_heading') !!}</h4>
                             {!! Form::open(['route'=>['admin_post.post', 'id' => @$post->post_id],  'files'=>true, 'method' => 'post'])  !!}
+                            <!--END POST ID  -->
 
-
-                            <!-- SAMPLE NAME TEXT-->
+                            <!-- POST NAME TEXT-->
                             @include('post::post.elements.text', ['name' => 'post_name'])
-                            <!-- /END SAMPLE NAME TEXT -->
+                            <!-- /END POST NAME TEXT -->
+                            
                             {!! Form::hidden('id',@$post->post_id) !!}
-
+                            
                             <!-- DELETE BUTTON -->
                             <a href="{!! URL::route('admin_post.delete',['id' => @$post->id, '_token' => csrf_token()]) !!}"
                                class="btn btn-danger pull-right margin-left-5 delete">

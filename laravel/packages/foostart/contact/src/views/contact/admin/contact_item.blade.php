@@ -1,12 +1,22 @@
-
+<head>
+  <script src='//cloud.tinymce.com/stable/tinymce.min.js'></script>
+  <script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+  </script>
+</head>
 @if( ! $contacts->isEmpty() )
+
 <table class="table table-hover">
     <thead>
         <tr>
             <td style='width:5%'>{{ trans('contact::contact_admin.order') }}</td>
             <th style='width:10%'>Contact ID</th>
+            
             <th style='width:20%'>Contact Name</th>
             <th style='width:30%'>Contact CV</th>
+            <th style='width:10%'>Contact SDT   </th>
             <th style='width:20%'>Contact Mail</th>
             <th style='width:20%'>Contact Skype</th>
             <th style='width:20%'>{{ trans('contact::contact_admin.operations') }}</th>
@@ -14,15 +24,16 @@
     </thead>
     <tbody>
         <?php
-            $nav = $contacts->toArray();
-            $counter = ($nav['current_page'] - 1) * $nav['per_page'] + 1;
+        $nav = $contacts->toArray();
+        $counter = ($nav['current_page'] - 1) * $nav['per_page'] + 1;
         ?>
         @foreach($contacts as $contact)
         <tr>
             <td>
-                <?php echo $counter; $counter++ ?>
+                <?php echo $counter;
+                $counter++ ?>
             </td>
-            
+            <td>{!! $contact->contact_id !!}</td>
             <td>{!! $contact->contact_name !!}</td>
             <td>{!! $contact->contact_cv !!}</td>
             <td>{!! $contact->contact_sdt !!}</td>
@@ -38,12 +49,14 @@
     </tbody>
 </table>
 @else
- <span class="text-warning">
-	<h5>
-		{{ trans('contact::contact_admin.message_find_failed') }}
-	</h5>
- </span>
+<span class="text-warning">
+    <h5>
+        {{ trans('contact::contact_admin.message_find_failed') }}
+    </h5>
+</span>
 @endif
 <div class="paginator">
     {!! $contacts->appends($request->except(['page']) )->render() !!}
 </div>
+
+

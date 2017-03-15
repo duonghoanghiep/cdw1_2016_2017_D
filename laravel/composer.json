@@ -23,8 +23,9 @@
         "psr-4": {
             "App\\": "app/",
 			     "Foostart\\Sample\\": "packages/foostart/sample/src/",
-				 "Foostart\\Post\\": "packages/foostart/post/src/",
-            "Foostart\\Contact\\": "packages/foostart/contact/src/"
+			"Foostart\\Post\\": "packages/foostart/post/src/",
+                            "Foostart\\Contact\\": "packages/foostart/contact/src/",
+            "Foostart\\Service\\": "packages/foostart/service/src/"
 
         }
     },

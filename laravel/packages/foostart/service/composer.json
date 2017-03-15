@@ -1,0 +1,12 @@
+{
+    "name": "foostart/contact",
+    "description": "Create overview contact can intergrate other project",
+    "authors": [
+        {
+            "name": "Foostart",
+            "email": "minhtrong17021996@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
